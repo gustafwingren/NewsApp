@@ -1,3 +1,6 @@
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +13,10 @@ namespace NewsApp
 		public App ()
 		{
 			InitializeComponent();
+
+            AppCenter.Start("ios=e91522fa-c254-411c-84c5-78260662b33a;" +
+                "android=a4eb9485-041c-40f5-9bda-2aa6f6f0654b", 
+                typeof(Analytics), typeof(Crashes));
 
 			MainPage = new MainPage();
 		}
