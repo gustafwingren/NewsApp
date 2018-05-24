@@ -10,6 +10,11 @@ namespace NewsApp
 {
 	public partial class App : Application
 	{
+        static App()
+        {
+
+        }
+
 		public App ()
 		{
 			InitializeComponent();
