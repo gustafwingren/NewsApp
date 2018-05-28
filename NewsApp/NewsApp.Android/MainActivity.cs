@@ -1,24 +1,21 @@
-﻿using System;
-
+﻿
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using NewsApp;
+using Android.Util;
+using Android.Views;
+using NewsApp.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Android.Util;
-using NewsApp.Helpers;
 
 namespace NewsApp.Droid
 {
     [Activity(
-        Label = "NewsApp", 
-        Icon = "@mipmap/icon", 
-        Theme = "@style/MainTheme", 
-        MainLauncher = false, 
+        Label = "NewsApp",
+        Icon = "@mipmap/icon",
+        Theme = "@style/MainTheme",
+        MainLauncher = false,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : FormsAppCompatActivity
     {
@@ -30,6 +27,7 @@ namespace NewsApp.Droid
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
+            UserDialogs.Init(this);
 
             InitMessageCenterSubscriptions();
             RegisterPlatformDependencies();
