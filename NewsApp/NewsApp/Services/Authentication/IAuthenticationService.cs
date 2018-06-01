@@ -9,10 +9,6 @@ namespace NewsApp.Services.Authentication
 
         User AuthenticatedUser { get; }
 
-        Task<bool> LoginAsync(string email, string password);
-
-        Task<bool> LoginWithFacebookAsync();
-
         Task<bool> UserIsAuthenticatedAndValidAsync();
 
         Task LogoutAsync();

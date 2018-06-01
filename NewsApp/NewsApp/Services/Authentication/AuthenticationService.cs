@@ -20,28 +20,24 @@ namespace NewsApp.Services.Authentication
 
         public User AuthenticatedUser => AppSettings.User;
 
-        public Task<bool> LoginAsync(string email, string password)
-        {
-        }
-        public async Task<bool> LoginWithFacebookAsync()
-        {
-        }
-
         public async Task<bool> UserIsAuthenticatedAndValidAsync()
         {
+            if (!IsAuthenticated)
+            {
+                return false;
+            }
+            else
+            {
+                bool refreshSucceded = false;
+
+                return refreshSucceded;
+            }
         }
 
         public async Task LogoutAsync()
         {
             AppSettings.RemoveUserData();
             await _browserCookiesService.ClearCookiesAsync();
-        }
-
-        private void SaveAuthenticationResult(AuthenticationResult result)
-        {
-            User user = AuthenticationResultHelper.GetUserFromResult(result);
-            user.AvatarUrl = _avatarProvider.GetAvatarUrl(user.Email);
-            AppSettings.User = user;
         }
     }
 }

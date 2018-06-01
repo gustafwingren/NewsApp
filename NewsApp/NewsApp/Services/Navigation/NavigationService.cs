@@ -1,4 +1,5 @@
-﻿using NewsApp.ViewModels;
+﻿using NewsApp.Services.Authentication;
+using NewsApp.ViewModels;
 using NewsApp.ViewModels.Base;
 using NewsApp.Views;
 using System;
@@ -165,8 +166,8 @@ namespace NewsApp.Services.Navigation
         {
             _mappings.Add(typeof(LoginViewModel), typeof(LoginView));
             _mappings.Add(typeof(MainViewModel), typeof(MainView));
-
             _mappings.Add(typeof(ExtendedSplashViewModel), typeof(ExtendedSplashView));
+            _mappings.Add(typeof(HomeViewModel), typeof(HomeView));
         }
     }
 }

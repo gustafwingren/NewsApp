@@ -1,6 +1,8 @@
 ﻿using Autofac;
+using NewsApp.Services.Authentication;
 using NewsApp.Services.Dialog;
 using NewsApp.Services.Navigation;
+using NewsApp.Services.OpenUri;
 using System;
 
 namespace NewsApp.ViewModels.Base
@@ -27,6 +29,15 @@ namespace NewsApp.ViewModels.Base
             _containerBuilder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
             _containerBuilder.RegisterType<DialogService>().As<IDialogService>();
             _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+            _containerBuilder.RegisterType<OpenUriService>().As<IOpenUriService>();
+            _containerBuilder.RegisterType<DefaultBrowserCookiesService>().As<IBrowserCookiesService>();
+            _containerBuilder.RegisterType<GravatarUrlProvider>().As<IAvatarUrlProvider>();
+
+            _containerBuilder.RegisterType<HomeViewModel>();
+            _containerBuilder.RegisterType<LoginViewModel>();
+            _containerBuilder.RegisterType<MainViewModel>();
+            _containerBuilder.RegisterType<MenuViewModel>();
+
 
             _containerBuilder.RegisterType<ExtendedSplashViewModel>();
 
