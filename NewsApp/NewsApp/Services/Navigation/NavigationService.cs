@@ -148,18 +148,23 @@ namespace NewsApp.Services.Navigation
 
         protected Page CreateAndBindPage(Type viewModelType, object parameter)
         {
-            Type pageType = GetPageTypeForViewModel(viewModelType);
-
-            if (pageType == null)
+            try
             {
-                throw new Exception($"Mapping type for {viewModelType} is not a page");
+                Type pageType = GetPageTypeForViewModel(viewModelType);
+
+                if (pageType == null)
+                {
+                    throw new Exception($"Mapping type for {viewModelType} is not a page");
+                }
+                Page page = Activator.CreateInstance(pageType) as Page;
+                ViewModelBase viewModel = Locator.Instance.Resolve(viewModelType) as ViewModelBase;
+                page.BindingContext = viewModel;
+                return page;
             }
-
-            Page page = Activator.CreateInstance(pageType) as Page;
-            ViewModelBase viewModel = Locator.Instance.Resolve(viewModelType) as ViewModelBase;
-            page.BindingContext = viewModel;
-
-            return page;
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         private void CreatePageViewModelMappings()

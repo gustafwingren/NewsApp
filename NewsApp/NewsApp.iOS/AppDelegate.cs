@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using FFImageLoading.Forms.Platform;
 using Foundation;
 using UIKit;
 using Xamarin.Forms;
@@ -24,6 +21,8 @@ namespace NewsApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
+            CachedImageRenderer.Init();
+            InitXamanimation();
 
             RegisterPlatformDependencies();
             LoadApplication(new App());
@@ -43,6 +42,11 @@ namespace NewsApp.iOS
         private void RegisterPlatformDependencies()
         {
 
+        }
+
+        private static void InitXamanimation()
+        {
+            var t2 = typeof(Xamanimation.AnimationBase);
         }
     }
 }

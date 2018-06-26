@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Util;
 using Android.Views;
+using FFImageLoading.Forms.Platform;
 using NewsApp.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -28,6 +29,7 @@ namespace NewsApp.Droid
 
             Forms.Init(this, bundle);
             UserDialogs.Init(this);
+            CachedImageRenderer.Init(enableFastRenderer: true);
 
             InitMessageCenterSubscriptions();
             RegisterPlatformDependencies();

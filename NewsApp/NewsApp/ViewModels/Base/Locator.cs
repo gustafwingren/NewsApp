@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using NewsApp.Services.Analytic;
 using NewsApp.Services.Authentication;
 using NewsApp.Services.Dialog;
 using NewsApp.Services.Navigation;
@@ -26,6 +27,7 @@ namespace NewsApp.ViewModels.Base
         {
             _containerBuilder = new ContainerBuilder();
 
+            _containerBuilder.RegisterType<AnalyticService>().As<IAnalyticService>();
             _containerBuilder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
             _containerBuilder.RegisterType<DialogService>().As<IDialogService>();
             _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
